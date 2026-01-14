@@ -1,6 +1,6 @@
-baseURL = "https://danysk.github.io/slides-2024-acsos-reproducibility"
+baseURL = "https://danysk.github.io/2026-slides-hohenheim-reproducibility"
 languageCode = "en-us"
-title = "Reproducible experiments or didn't happen"
+title = "DevOps practices for Reproducible Computational Science"
 disableKinds = ["sitemap", "RSS"]
 theme = "reveal-hugo"
 publishDir = "build"

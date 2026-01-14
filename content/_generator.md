@@ -1,54 +1,60 @@
 
 +++
 
-title = "Reproducible experiments or didn't happen"
-description = "The replicability crisis and recipes for self-organizing systems"
+title = "DevOps practices for Reproducible Computational Science"
+description = "The replicability crisis and recipes for software-based research artifacts"
 outputs = ["Reveal"]
-aliases = [
-    "/guide/"
-]
 
 +++
 
-# PhD forum talk @ ACSOS 2024
+# DevOps practices
+# for Reproducible Computational Science
 
-#### {{% today %}}
+#### Computational Science Hub, University of Hohenheim, 2026-01-22
 ## [Danilo Pianini](mailto:danilo.pianini@unibo.it)
 ### Alma Mater Studiorum -- Università di Bologna
 
 ---
 
-{{< slide background-image="hippo2.jpg" state="blur-animation-light" transition="fade-in fade-out" >}}
+{{< slide background-image="Gallus-gallus-domesticus.jpg" state="blur-animation-light" transition="fade-in fade-out" >}}
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 <!-- white background -->
 <span style="background-color: white; border-radius: 0.2em;">
-source: https://www.earth.com/news/hippopotamus-population-hit-hard-by-habitat-destruction
+picture by: Damien Wallace, CC-BY-SA-4.0
 
 </span>
 
 ---
 
-# Hippos (Hippopotamus amphibius) facts
+{{< slide background-image="Gallus-gallus-domesticus.jpg" state="blur-animation-light" transition="fade-in fade-out" background-opacity="0.3" >}}
 
-* {{% frag c="Big (second largest land animal after elephants)" %}}
-* {{% frag c="(Relatively) Fast (30km/h on land, 8km/h in water)" %}}
-* {{% frag c="Strong bite (13.8MPa, twice the strength of a lion bite)" %}}
-* {{% frag c="Aggressive and highly unpredictable" %}}
-* {{% frag c="Among the deadliest animals worldwide by human deaths" %}}
+# Facts about chickens (Gallus gallus domesticus)
+
+* {{% frag c="World’s most common domestic bird" %}}
+* {{% frag c="Strict social hierarchy" %}}
+* {{% frag c="Opportunistic omnivore and constant forager" %}}
+* {{% frag c="High reproductive output through frequent egg-laying" %}}
+* {{% frag c="Light body and fast reactions that depend on precise coordination" %}}
+* {{% frag c="Rhythmic walking patterns can run on autopilot" %}}
+* {{% frag c="Movement can persist without conscious control" %}}
 
 ---
 
 I'm now making a claim, and I want to see if you believe me
 
 {{% fragment %}}
-# An adult hippo's bite can crush in half an adult crocodile
+# A beheaded chicken can survive for 18 months
 
 Please *raise your hand if you believe this claim*
 {{% /fragment %}}
 
+---
+
+# A beheaded chicken can survive for 18 months
+
 {{% fragment %}}
-![crocodile](crocodile80.jpg)
+![beheaded](beheaded.webp)
 
 Please raise your hand if you believe this claim *now*
 {{% /fragment %}}
