@@ -1,14 +1,14 @@
 <!DOCTYPE html><html lang="en"><head>
 	<meta name="generator" content="Hugo 0.136.5">
     <meta charset="utf-8">
-<title>Reproducible experiments or didn't happen</title>
-<meta name="description" content="The replicability crisis and recipes for self-organizing systems">
+<title>DevOps practices for Reproducible Computational Science</title>
+<meta name="description" content="The replicability crisis and recipes for software-based research artifacts">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/slides-2024-acsos-reproducibility/reveal-js/dist/reset.css">
-<link rel="stylesheet" href="/slides-2024-acsos-reproducibility/reveal-js/dist/reveal.css">
-  <link rel="stylesheet" href="/slides-2024-acsos-reproducibility/css/custom-theme.min.024ed8e9595b3db31e8e7def326110f75cfca2965415be8cec163fbda7954e59.css" id="theme"><link rel="stylesheet" href="/slides-2024-acsos-reproducibility/highlight-js/solarized-dark.min.css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/2026-slides-hohenheim-reproducibility/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/2026-slides-hohenheim-reproducibility/reveal-js/dist/reveal.css">
+  <link rel="stylesheet" href="/2026-slides-hohenheim-reproducibility/css/custom-theme.min.bc6022cffe680ff31c71d7668bb482df9f6e0fec07d0b54e1b95e06bee5519c6.css" id="theme"><link rel="stylesheet" href="/2026-slides-hohenheim-reproducibility/highlight-js/solarized-dark.min.css">
 <link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
@@ -23,42 +23,50 @@
       <div class="slides">
   
 
-    <section><h1 id="phd-forum-talk--acsos-2024">PhD forum talk @ ACSOS 2024</h1>
-<h4 id="2026-01-14">2026-01-14</h4>
+    <section><h1 id="devops-practices">DevOps practices</h1>
+<h1 id="for-reproducible-computational-science">for Reproducible Computational Science</h1>
+<h4 id="computational-science-hub-university-of-hohenheim-2026-01-22">Computational Science Hub, University of Hohenheim, 2026-01-22</h4>
 <h2 id="danilo-pianinimailtodanilopianiniuniboit"><a href="mailto:danilo.pianini@unibo.it">Danilo Pianini</a></h2>
 <h3 id="alma-mater-studiorum----università-di-bologna">Alma Mater Studiorum – Università di Bologna</h3>
 </section>
 <p>
-</p><section data-noprocess="" data-shortcode-slide="" data-background-image="https://danysk.github.io/slides-2024-acsos-reproducibility/hippo2.jpg" data-state="blur-animation-light" data-transition="fade-in fade-out">
+</p><section data-noprocess="" data-shortcode-slide="" data-background-image="https://danysk.github.io/2026-slides-hohenheim-reproducibility/Gallus-gallus-domesticus.jpg" data-state="blur-animation-light" data-transition="fade-in fade-out">
   
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><p></p>
 <!-- white background -->
 <span style="background-color: white; border-radius: 0.2em;">
-source: https://www.earth.com/news/hippopotamus-population-hit-hard-by-habitat-destruction
+picture by: Damien Wallace, CC-BY-SA-4.0
 </span>
-</section><section>
-<h1 id="hippos-hippopotamus-amphibius-facts">Hippos (Hippopotamus amphibius) facts</h1>
+</section>
+
+<section data-noprocess="" data-shortcode-slide="" data-background-image="https://danysk.github.io/2026-slides-hohenheim-reproducibility/Gallus-gallus-domesticus.jpg" data-background-opacity="0.3" data-state="blur-animation-light" data-transition="fade-in fade-out">
+  
+<h1 id="facts-about-chickens-gallus-gallus-domesticus">Facts about chickens (Gallus gallus domesticus)</h1>
 <ul>
-<li><span class="fragment ">Big (second largest land animal after elephants)</span></li>
-<li><span class="fragment ">(Relatively) Fast (30km/h on land, 8km/h in water)</span></li>
-<li><span class="fragment ">Strong bite (13.8MPa, twice the strength of a lion bite)</span></li>
-<li><span class="fragment ">Aggressive and highly unpredictable</span></li>
-<li><span class="fragment ">Among the deadliest animals worldwide by human deaths</span></li>
+<li><span class="fragment ">World’s most common domestic bird</span></li>
+<li><span class="fragment ">Strict social hierarchy</span></li>
+<li><span class="fragment ">Opportunistic omnivore and constant forager</span></li>
+<li><span class="fragment ">High reproductive output through frequent egg-laying</span></li>
+<li><span class="fragment ">Light body and fast reactions that depend on precise coordination</span></li>
+<li><span class="fragment ">Rhythmic walking patterns can run on autopilot</span></li>
+<li><span class="fragment ">Movement can persist without conscious control</span></li>
 </ul>
 </section><section>
 <p>I’m now making a claim, and I want to see if you believe me</p>
 
 
 <span class="fragment ">
-  <h1 id="an-adult-hippos-bite-can-crush-in-half-an-adult-crocodile">An adult hippo’s bite can crush in half an adult crocodile</h1>
+  <h1 id="a-beheaded-chicken-can-survive-for-18-months">A beheaded chicken can survive for 18 months</h1>
 <p>Please <em>raise your hand if you believe this claim</em></p>
 
 </span>
 
+</section><section>
+<h1 id="a-beheaded-chicken-can-survive-for-18-months">A beheaded chicken can survive for 18 months</h1>
 
 
 <span class="fragment ">
-  <p><img src="crocodile80.jpg" alt="crocodile"></p>
+  <p><img src="beheaded.webp" alt="beheaded"></p>
 <p>Please raise your hand if you believe this claim <em>now</em></p>
 
 </span>
@@ -571,28 +579,28 @@ to convert Markdown documentation into a website</li>
       
 
     </div>
-<script type="text/javascript" src="/slides-2024-acsos-reproducibility/reveal-hugo/object-assign.js"></script>
+<script type="text/javascript" src="/2026-slides-hohenheim-reproducibility/reveal-hugo/object-assign.js"></script>
 
-<a href="/slides-2024-acsos-reproducibility/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
+<a href="/2026-slides-hohenheim-reproducibility/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
 
 <script type="application/json" id="reveal-hugo-site-params">{"custom_theme":"custom-theme.scss","custom_theme_compile":true,"custom_theme_options":{"enablesourcemap":true,"targetpath":"css/custom-theme.css"},"height":"1080","highlight_theme":"solarized-dark","history":true,"mermaid":[{}],"slide_number":true,"theme":"league","transition":"slide","transition_speed":"fast","width":"1920"}</script>
 <script type="application/json" id="reveal-hugo-page-params">null</script>
 
-<script src="/slides-2024-acsos-reproducibility/reveal-js/dist/reveal.js"></script>
+<script src="/2026-slides-hohenheim-reproducibility/reveal-js/dist/reveal.js"></script>
 
 
   
   
-  <script type="text/javascript" src="/slides-2024-acsos-reproducibility/reveal-js/plugin/markdown/markdown.js"></script>
+  <script type="text/javascript" src="/2026-slides-hohenheim-reproducibility/reveal-js/plugin/markdown/markdown.js"></script>
   
-  <script type="text/javascript" src="/slides-2024-acsos-reproducibility/reveal-js/plugin/highlight/highlight.js"></script>
+  <script type="text/javascript" src="/2026-slides-hohenheim-reproducibility/reveal-js/plugin/highlight/highlight.js"></script>
   
-  <script type="text/javascript" src="/slides-2024-acsos-reproducibility/reveal-js/plugin/zoom/zoom.js"></script>
+  <script type="text/javascript" src="/2026-slides-hohenheim-reproducibility/reveal-js/plugin/zoom/zoom.js"></script>
   
-  <script type="text/javascript" src="/slides-2024-acsos-reproducibility/reveal-js/plugin/notes/notes.js"></script>
+  <script type="text/javascript" src="/2026-slides-hohenheim-reproducibility/reveal-js/plugin/notes/notes.js"></script>
   
   
-  <script type="text/javascript" src="/slides-2024-acsos-reproducibility/reveal-js/plugin/notes/notes.js"></script>
+  <script type="text/javascript" src="/2026-slides-hohenheim-reproducibility/reveal-js/plugin/notes/notes.js"></script>
 
 
 
