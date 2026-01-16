@@ -53,47 +53,63 @@ Please *raise your hand if you believe this claim*
 
 # A beheaded chicken can survive for 18 months
 
-{{% fragment %}}
 ![beheaded](beheaded.webp)
 
+{{% fragment %}}
 Please raise your hand if you believe this claim *now*
 {{% /fragment %}}
 
 ---
 
-![pic](pic.webp)
+# A beheaded chicken can survive for 18 months
 
----
-
-Let's do the same game
-
-{{% fragment %}}
-# Humans can tame and ride hippos
-
-Please *raise your hand if you believe this claim*
-{{% /fragment %}}
+![beheaded](dance.jpg)
+![beheaded](group.jpg)
 
 {{% fragment %}}
-![riding](riding60.jpg)
-
 Please raise your hand if you believe this claim *now*
 {{% /fragment %}}
 
+---
+
+# A beheaded chicken can survive for 18 months
+
+![beheaded](owner.jpg)
+![beheaded](head-hand.jpg)
+
 {{% fragment %}}
-Would it be more convincing if I precisely explained how the hippo was tamed and ridden?
+Please raise your hand if you believe this claim *now*
+{{% /fragment %}}
+
+---
+
+# A beheaded chicken can survive for 18 months
+
+
+{{% multicol %}}
+{{% col %}}
+![beheaded](feed.jpg)
+
+{{% fragment %}}
+Please raise your hand if you believe this claim *now*
+{{% /fragment %}}
+{{% /col %}}
+{{% col %}}
+{{% fragment %}}
+Would it be more convincing if I precisely explained *how* the cut was performed? (**protocol**)
 {{% /fragment %}}
 
 {{% fragment %}}
-Would it be more convincing if multiple independent people applied the same procedure and obtained the same result?
+Would it be more convincing if *multiple independent people* were able to replicate the experiment? (**independent reproduction**)
 {{% /fragment %}}
+{{% /col %}}
+{{% /multicol %}}
 
 ---
 
 # ~~Picture~~ Reproducible experiments, or didn't happen
 
-![experiment](experiment.webp)
-
-<small>AI didn't like the letter R</small>
+![experiment](experiment.png)
 
 ---
 
@@ -105,11 +121,17 @@ Would it be more convincing if multiple independent people applied the same proc
 ### aka replicability crisis or reproducibility crisis
 
 * ongoing *methodological crisis*
-* the results of many scientific studies are hard or impossible to *reproduce*.
+* the results of many scientific studies are hard or impossible to *reproduce/replicate* reliably.
 
-* empirical reproductions are essential for the the scientific method
+* empirical reproductions are essential for the scientific method
 
 #### no reproducibility $\Rightarrow$ scientific credibility is undermined
+
+### Terms (NASEM 2019)
+
+* **Reproducibility**: same data + code/steps $\Rightarrow$ consistent computational results
+* **Replicability**: independent study/new data $\Rightarrow$ consistent results
+
 
 ---
 
@@ -132,7 +154,11 @@ Would it be more convincing if multiple independent people applied the same proc
 
 ---
 
-## Develop and share your tool or experiment, checklist
+## DevOps practices for Reproducible Computational Science
+
+Practices, techniques and tools that are common in the **DevOps** world.
+
+Some of them apply to **experiments** (or part of them), some to **tools/libraries**, some to both.
 
 1. Set up a *version control system*
 2. Prepare a code *repository*
@@ -141,6 +167,7 @@ Would it be more convincing if multiple independent people applied the same proc
 5. Work in isolation using *containers*
 6. Raise your confidence with *continuous integration* and *continuous delivery*
 7. Pick a good *license*
+8. Create archival copies and persistent identifiers (*DOIs*)
 9. *Document* your work
 
 ---
@@ -154,7 +181,7 @@ Would it be more convincing if multiple independent people applied the same proc
 {{% multicol %}}
 {{% col %}}
 ## Dos
-* set it up early to support the construction of the artifact
+* set it up *early* to support the construction of the artifact
 * `git` is a standard de-facto, use it
 * track only non-generated files $\Rightarrow$ set up and maintain a good `.gitignore`
 * take your time to understand how to *solve conflicts*
@@ -211,7 +238,7 @@ Would it be more convincing if multiple independent people applied the same proc
 
 # Build automation
 
-1. Automatic fetch and download of software dependencies
+1. Automatic resolution and download of software dependencies
 2. Automatic compilation and packaging
 3. Automatic testing
 4. Automatic execution of the experiments
@@ -226,6 +253,7 @@ Would it be more convincing if multiple independent people applied the same proc
 * strive to have *a single short command* on a freshly cloned copy run the entire experiment
 or test and pack the tool
 * minimize the pre-requirements
+* *lock* dependency versions
 {{% /col %}}
 {{% col %}}
 ## Don'ts
@@ -287,7 +315,7 @@ provide a *companion experiment* (smaller in size) that can be executed determin
 {{% col %}}
 ## Don'ts
 * mount and write into user-local folders with the `root` user
-* until they allow access without a token, avoid GitHub's `ghcr.io` registry
+* be aware of auth/visibility quirks in `ghcr.io` (Docker Hub is generally more straightforward)
 {{% /col %}}
 {{% col %}}
 ## Advanced
@@ -302,7 +330,7 @@ Example: https://github.com/nicolasfara/experiments-2024-ACSOS-imageonomics-dron
 # Continuous integration and continuous delivery
 
 1. For each change, automatically run a verification process
-2. Easy to share lightweight virtual machines (NOTE: they are not VMs)
+2. Detect regressions early and keep the artifact continuously runnable
 
 {{% multicol %}}
 {{% col %}}
@@ -319,7 +347,7 @@ Example: https://github.com/nicolasfara/experiments-2024-ACSOS-imageonomics-dron
 {{% /col %}}
 {{% col %}}
 ## Advanced
-* automatically deal with updates and patches using a *automatic merging rules* for PRs
+* automatically deal with updates and patches using a *automatic merge rules* for PRs
 * automatically release new versions (checkout [Semantic Release](https://github.com/semantic-release/semantic-release))
 {{% /col %}}
 {{% /multicol %}}
@@ -331,7 +359,7 @@ Example: https://github.com/nicolasfara/experiments-2024-acsos-multi-tier-field-
 # Pick a license
 
 1. Unlicensed software is [proprietary](https://choosealicense.com/no-permission/)
-    * the copyright exsists even if you don't write it, unless you *explicitly renounce* to part of it
+    * copyright exists even if you don’t write it; a license is an *explicit permission grant*
 2. Pick the right license for the job, depending on your goals
 
 {{% multicol %}}
@@ -349,12 +377,12 @@ Example: https://github.com/nicolasfara/experiments-2024-acsos-multi-tier-field-
 {{% /multicol %}}
 
 ## Rules of thumb
-* if people to do whatever they want to, use *MIT* or *BSD*
+* if you want people to do whatever they want, use *MIT* or *BSD*
 * if you want to track contributions or protect trademarks, use *Apache 2.0*
-* *do not use GNU LGPL* if you want companies to use your library
+* from personal experience: *do not use GNU LGPL* if you want companies to use your library
     * forces the linking software to be partly reverse-engineerable
     * a *GNU GPL with linking/classpath exception* is more permissive
-* if you wanto to be protective and force everyone using your stuff to release theirs,
+* if you want to be protective and force everyone using your stuff to release theirs,
     use *GNU GPL*
 * if your software is networked, consider *GNU Affero* in place of *GNU GPL*
 * *do not use Creative Commons licenses for software*
@@ -365,7 +393,7 @@ Example: https://github.com/nicolasfara/experiments-2024-acsos-multi-tier-field-
 # Archival copies and digital object identifiers
 
 1. Don't let your software disappear
-2. Let other reference specific versions of your software through a DOI
+2. Let others reference specific versions of your software through a DOI
 
 {{% multicol %}}
 {{% col %}}
@@ -430,11 +458,11 @@ Example: https://alchemistsimulator.github.io/
     * {{% fragment %}} Containerization {{% /fragment %}}
     * {{% fragment %}} CI/CD {{% /fragment %}}
 * {{% fragment %}} Upload your artifacts *where others are likely to search* for them {{% /fragment %}}
-* {{% fragment %}} Make your experiment *future-proof* by archiving os software-preservation platforms {{% /fragment %}}
+* {{% fragment %}} Make your experiment *future-proof* by archiving on software-preservation platforms {{% /fragment %}}
 * {{% fragment %}} Don't forget to *apply a license* {{% /fragment %}}
 
 ---
 
-### And of course, **don't try to tame and ride a hippo**
+### And of course, **leave chicken's heads alone**
 
 ![death](death.svg)
